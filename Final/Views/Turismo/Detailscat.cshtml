@@ -1,0 +1,26 @@
+﻿@model Final.Models.categorias
+
+@{
+    ViewBag.Title = "Detailscat";
+}
+
+<h2>Detailscat</h2>
+
+<div>
+    <h4>categorias</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Editcat", new { id = Model.IdCategoria }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

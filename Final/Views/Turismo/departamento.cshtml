@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Final.Models.departamento>
+
+<div class="row">
+    <h2>departamento</h2>
+    <hr />
+    <div class=" row">
+        @*<div class="col-md-6">
+            @using (Html.BeginForm("Alta5", "Turismo", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Departamento")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBox("Departamento", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="submit" value="Ingresar" class="form-control btn btn-success" />
+                    </div>
+                </div>
+            }
+        </div>*@
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID Departamento</th>
+                        <th>Departamento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.IdDepartamento)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Departamento)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Editdep", new { id = item.IdDepartamento }) |
+                        @Html.ActionLink("Details", "Detailsdep", new { id = item.IdDepartamento })
+                    </td>
+                </tr>
+            }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

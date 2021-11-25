@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Final.Models.cotizacion>
+
+<div class="container">
+    <h2>cotizacion</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            @using (Html.BeginForm("Alta4", "Turismo", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("ID del usuario")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBox("IdUsuario", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Fecha a cotizar")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBox("FechaCotizacion", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Estado")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.RadioButton("Estado", "A", true, new { id = "A" }) Disponible
+                        <br />
+                        @Html.RadioButton("Estado", "0", false, new { id = "0" }) Ocupado
+                    </div>
+                </div>
+                <br />
+                <hr />
+                <div class="row">
+                    <input type="submit" value="Guardar" class="form-control btn btn-success" />
+                </div>
+            }
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID Usuario</th>
+                        <th>Fecha a cotizar</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cot in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelCot => cot.IdUsuario)</td>
+                    <td>@Html.DisplayFor(modelCot => cot.FechaCotizacion)</td>
+                    <td>@Html.DisplayFor(modelCot => cot.Estado)</td>
+                </tr>
+            }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

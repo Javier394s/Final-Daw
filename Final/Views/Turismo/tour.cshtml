@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Final.Models.tour>
+
+<div class="container">
+    <h2>tour</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            @using (Html.BeginForm("Alta2", "Turismo", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Nombre del tour")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBox("NombreTour", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Descripcion")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextArea("Descripcion", "", new { @class = "form-control", id = "address" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Servicios")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBox("Servicios", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Precio por adulto")
+                    </div>
+                    <div class="col-md-4" ?>
+                        @Html.TextBox("PrecioAdultos", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Precio Por Niño")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBox("PrecioNiños", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Estado")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.RadioButton("Estado", "A", true, new { id = "A" }) Activo
+                        <br />
+                        @Html.RadioButton("Estado", "0", false, new { id = "0" }) Desactivado
+                    </div>
+                </div>
+                <br />
+                <div class="col-md-4">
+                    <input type="submit" value="Guardar" class="form-control btn btn-success" />
+                </div>
+            }
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del tour</th>
+                        <th>Descripcion</th>
+                        <th>Servicios</th>
+                        <th>Precio de Adulto</th>
+                        <th>Precio de Niño</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.IdTour)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NombreTour)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Servicios)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PrecioAdultos)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PrecioNiños)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit2", new { id = item.IdTour }) |
+                        @Html.ActionLink("Details", "Details2", new { id = item.IdTour }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.IdTour })
+
+                    </td>
+                </tr>
+            }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Final.Models.categorias>
+
+<div class="row">
+    <h2>categorias</h2>
+    <hr />
+    <div class=" row">
+        <div class="col-md-6">
+                @using (Html.BeginForm("Alta6", "Turismo", FormMethod.Post))
+                {
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.Label("Categoria")
+                        </div>
+                        <div class="col-md-4">
+                            @Html.TextBox("Categoria", "", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="submit" value="Ingresar" class="form-control btn btn-success" />
+                        </div>
+                    </div>
+                }
+            </div>
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID Categoria</th>
+                        <th>Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.IdCategoria)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Categoria)</td>
+                            <td>
+                                @Html.ActionLink("Edit", "Editcat", new { id = item.IdCategoria }) |
+                                @Html.ActionLink("Details", "Detailscat", new { id = item.IdCategoria })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

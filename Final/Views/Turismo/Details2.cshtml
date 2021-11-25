@@ -1,0 +1,82 @@
+﻿@model Final.Models.tour
+
+@{
+    ViewBag.Title = "Details2";
+}
+
+<h2>Details2</h2>
+
+<div>
+    <h4>tour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdDepartamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdDepartamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreTour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreTour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Servicios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Servicios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioAdultos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioAdultos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioNiños)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioNiños)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdTour }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

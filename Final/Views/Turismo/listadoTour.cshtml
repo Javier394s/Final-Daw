@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Final.Models.tour>
+
+@{
+    ViewBag.Title = "listadoTour";
+}
+
+<h2>listadoTour</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdDepartamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreTour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Servicios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioAdultos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioNiños)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdDepartamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCategoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreTour)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Servicios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecioAdultos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecioNiños)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdTour }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdTour }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdTour })
+        </td>
+    </tr>
+}
+
+</table>

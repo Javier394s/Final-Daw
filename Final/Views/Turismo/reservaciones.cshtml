@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Final.Models.reservaciones>
+
+<div class="container">
+    <h2>reservaciones</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            @using (Html.BeginForm("Alta3", "Turismo", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("ID de usuario")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBox("IdUusuario", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Fecha de reservacion")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBox("FechaReservacion", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Fecha de finalizacion")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBox("FechaFinalizacion", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Cantidad de adultos")
+                    </div>
+                    <div class="col-md-4" ?>
+                        @Html.TextBox("CantidadAdultos", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Cantidad de niños")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBox("CantidadNiños", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Estado")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.RadioButton("Estado", "A", true, new { id = "A" }) Activo
+                        <br />
+                        @Html.RadioButton("Estado", "0", false, new { id = "0" }) Desactivado
+                    </div>
+                </div>
+                <br />
+                <hr />
+                <div class="col-md-4">
+                    <input type="submit" value="Guardar" class="form-control btn btn-success" />
+                </div>
+            }
+        </div>
+        <div class="col-md-6">
+            @Html.Hidden("Reservaciones")
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID Reservacion</th>
+                        <th>Usuario</th>
+                        <th>Pago</th>
+                        <th>Reservacion</th>
+                        <th>Finalizacion</th>
+                        <th>Adultos</th>
+                        <th>Niños</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var reser in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => reser.IdReservacion)</td>
+                    <td>@Html.DisplayFor(modelItem => reser.Idusuario)</td>
+                    <td>@Html.DisplayFor(modelItem => reser.IdTipoPago)</td>
+                    <td>@Html.DisplayFor(modelItem => reser.FechaReservacion)</td>
+                    <td>@Html.DisplayFor(modelItem => reser.FechaFinalizacion)</td>
+                    <td>@Html.DisplayFor(modelItem => reser.CantidadAdultos)</td>
+                    <td>@Html.DisplayFor(modelItem => reser.CantidadNiños)</td>
+                    <td>@Html.DisplayFor(modelItem => reser.Estado)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Editreser", new { id = reser.IdReservacion }) |
+                        @Html.ActionLink("Details", "Detailsreser", new { id = reser.IdReservacion })
+
+                    </td>
+
+                </tr>
+            }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

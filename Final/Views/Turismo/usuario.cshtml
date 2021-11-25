@@ -1,0 +1,124 @@
+﻿@model IEnumerable<Final.Models.usuarioModel>
+
+<div class="container">
+    <h2>Registro de usuarios</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            @using (Html.BeginForm("Alta", "Turismo", FormMethod.Post))
+            {
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Nombre")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBox("Nombres", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Apellido")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBox("Apellidos", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Contraseña")
+                    </div>
+                    <div class="col-md-2">
+                        @Html.Password("Contraseña", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Edad")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBox("Edad", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Telefono")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBox("Telefono", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Correo")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBox("Correo", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.Label("Estado")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.RadioButton("Estado", "A", true, new { id = "A" }) Activo
+                        <br />
+                        @Html.RadioButton("Estado", "0", false, new { id = "0 "}) Desactivado
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-4">
+                        <input type="submit" value="Ingresar" class="form-control btn btn-success" />
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-6">
+            @Html.Label("Usuarios")
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Edad</th>
+                        <th>Telefono</th>
+                        <th>Correo</th>
+                        <th>Estado</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model)
+            {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.IdUsuario); </td>
+                        <td>@Html.DisplayFor(modelItem => item.Nombres);</td>
+                        <td>@Html.DisplayFor(modelItem => item.Apellidos);</td>
+                        <td>@Html.DisplayFor(modelItem => item.Edad);</td>
+                        <td>@Html.DisplayFor(modelItem => item.Telefono);</td>
+                        <td>@Html.DisplayFor(modelItem => item.Correo);</td>
+                        <td>@Html.DisplayFor(modelItem => item.Estado);</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.IdUsuario }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.IdUsuario }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.IdUsuario })
+                        </td>
+                        </tr>
+            }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
